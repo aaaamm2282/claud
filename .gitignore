@@ -1,0 +1,18 @@
+# dependencies / build
+node_modules/
+.next/
+dist/
+build/
+coverage/
+# env & secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# logs / os
+*.log
+.DS_Store
+# local uploads & backups
+uploads/
+backups/
