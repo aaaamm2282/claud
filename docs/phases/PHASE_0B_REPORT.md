@@ -2,6 +2,13 @@
 
 تاریخ: 2026-09-26 — فقط بررسی (READ-ONLY). هیچ تغییری در Production ایجاد نشد.
 
+## SCOPE UPDATE (2026-09-26 — دستور کاربر)
+- `mahermana.com` و `app.mahermana.com` **OUT OF SCOPE** هستند و فقط Future Integration محسوب می‌شوند، نه Current Deployment Target.
+- هیچ DNS Record، Subdomain یا تغییری برای `mahermana.com` پیشنهاد یا اعمال نمی‌شود.
+- Production و Staging فقط روی سرور DirectAdmin `app.dokkanzo.ir` و فقط با Domain/Subdomainهای موجود در همان اکانت اجرا می‌شوند.
+- ساخت Subdomain جدید فقط بعد از گزارش گزینه‌ها و تأیید کاربر انجام می‌شود.
+- PHASE 0B باز است تا مشخصات واقعی هاست معلوم شود.
+
 ## 1. دسترسی شبکه (یک تلاش هدفمند)
 | مرحله | نتیجه |
 |---|---|
@@ -24,12 +31,13 @@
 - `mahermana.com` (وب‌سایت و ایمیل) روی سرور جداگانه‌ای با نام `bahram.mrservers.net` در ارائه‌دهنده MrServers میزبانی می‌شود. DNS آن هم **External** و روی MrServers است.
 - پنل DirectAdmin روی `app.dokkanzo.ir` روی IP دیگری است که DNS آن در پارس‌پک قرار دارد؛ به احتمال زیاد یک VPS یا سرور جداگانه است.
 - پس به احتمال زیاد `mahermana.com` **داخل این اکانت DirectAdmin نیست**. تأیید قطعی فقط با دیدن پنل ممکن است.
-- اگر App روی سرور dokkanzo باشد، برای `app.mahermana.com` باید یک رکورد A به `212.23.201.172` در DNS مربوط به MrServers ساخته شود. این کار **در این مرحله انجام نشد**.
 
 ## 3. سناریوی تشخیص‌داده‌شده
 **E — اطلاعات کافی نیست.** سناریوی محتمل D (VPS) است، و اگر اکانت `app` فقط User-level باشد A/B.
 
 ## 4. MANUAL HOST CHECK REQUIRED
+موارد اضافه: در Domain Setup، **فهرست همه Domainها و Subdomainهای موجود در همین اکانت DirectAdmin** و اینکه DNS آن‌ها در پنل (Local) مدیریت می‌شود یا در پارس‌پک (External).
+
 به گزارش اصلی در گفت‌وگو مراجعه کنید (لیست Screenshotها و Command Block امن).
 
 Command Block امن: `docs/phases/host-inspect.sh` (فقط خواندنی؛ نصب، نوشتن یا Restart انجام نمی‌دهد).
